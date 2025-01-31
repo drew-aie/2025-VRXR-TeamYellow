@@ -54,7 +54,20 @@ public class GrenadeBehavior : MonoBehaviour
         StartCoroutine(Delay(() => { _explosionCollider.SetActive(false); }, 3.0f));
     }
 
-    public void OnThrow() => Invoke("Detonation", _grenadeTimer);
+    public void OnThrow()
+    {
+        if (_grenadeIsPrimed)
+            Invoke("Detonation", _grenadeTimer);
+        else
+        {
+            //ObjectPoolManager.ReturnObjectToPool(_grenade); 
+        }
+    }
+
+    public void PrimeGrenade()
+    {
+        _grenadeIsPrimed = true;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
