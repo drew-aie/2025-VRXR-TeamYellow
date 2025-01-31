@@ -54,12 +54,14 @@ public class GrenadeBehavior : MonoBehaviour
         StartCoroutine(Delay(() => { _explosionCollider.SetActive(false); }, 3.0f));
     }
 
+    public void OnThrow() => Invoke("Detonation", _grenadeTimer);
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Snail"))
             return;
 
-        Invoke("Detonation", _grenadeTimer);
+        Detonation();
     }
 
     private IEnumerator Delay(Action callback, float delay)

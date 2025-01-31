@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooling : MonoBehaviour
+public class GrenadeSpawning : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

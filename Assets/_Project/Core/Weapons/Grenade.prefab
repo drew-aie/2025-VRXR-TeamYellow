@@ -52,7 +52,7 @@ MonoBehaviour:
   PoseType: 0
   TrackingType: 0
   HoldType: 1
-  GrabControl: 0
+  GrabControl: 1
   OverrideGrabTrigger: 0
   GrabTrigger: 0
   RequireLineOfSight: 1
@@ -193,11 +193,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grenade: {fileID: 8306135957198900712}
+  _explosionCollider: {fileID: 8442996565440435690}
   _grenadeCount: 1
   _maxGrenadeCount: 3
   _grenadeTimer: 5
   _grenadeIsPrimed: 0
-  _explosionCollider: {fileID: 8442996565440435690}
 --- !u!1 &8306135957198900712
 GameObject:
   m_ObjectHideFlags: 0
