@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/HurricaneVR/TechDemo/Scenes/scene_examples.unity
     guid: 6192b2aa20ec3814f889f74b6930bef8
   m_configObjects:
