@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5cf354f78400c6e4dac67fd0e5877106
+guid: 83a2b709f4415484089383f741463d7f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Grenade_Texture
-    second: {fileID: 2100000, guid: d3d28f0973e91d84f916fe2be584521f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Salt
-    second: {fileID: 2100000, guid: 63c9f6782dd178b4e8b82b04ba4b8449, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: 21a4fcac1d26c7545bc3bcdd6707356b, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: 95c458b57940a924685d3f4d656837c5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
