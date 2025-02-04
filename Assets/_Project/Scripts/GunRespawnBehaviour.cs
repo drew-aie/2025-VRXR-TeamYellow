@@ -8,7 +8,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-
 public class GunRespawnBehaviour : MonoBehaviour
 {
     [SerializeField]
@@ -21,6 +20,7 @@ public class GunRespawnBehaviour : MonoBehaviour
     IEnumerator DelayedRespawn()
     {
         yield return new WaitForSeconds(2);
+        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         this.GetComponent<Rigidbody>().position = RespawnLocation.position;
     }
 }

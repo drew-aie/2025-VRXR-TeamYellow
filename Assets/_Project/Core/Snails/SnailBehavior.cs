@@ -12,6 +12,8 @@ public class SnailBehavior : MonoBehaviour
     [SerializeField, Tooltip("How fast the snail moves towards the target.")]
     private float _snailSpeed = 3.5f;
 
+    [SerializeField, Tooltip("How many points this snail is worth.")]
+
     private NavMeshAgent _snail;
 
     // Start is called before the first frame update
