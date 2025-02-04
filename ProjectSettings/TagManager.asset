@@ -6,6 +6,8 @@ TagManager:
   tags:
   - projectile
   - Snail
+  - Explosion
+  - Damage Trigger
   layers:
   - Default
   - TransparentFX
