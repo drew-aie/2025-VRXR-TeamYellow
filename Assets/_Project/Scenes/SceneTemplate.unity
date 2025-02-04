@@ -225,10 +225,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2992090885434434823, guid: e75f975f7f9983c46879a17897d177e4,
+        type: 3}
+      propertyPath: RaycastLayermask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7384940931623714712, guid: e75f975f7f9983c46879a17897d177e4,
         type: 3}
       propertyPath: m_Name
       value: Player_XRRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938659606653121591, guid: e75f975f7f9983c46879a17897d177e4,
+        type: 3}
+      propertyPath: RaycastLayermask.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
