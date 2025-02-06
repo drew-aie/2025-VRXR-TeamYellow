@@ -455,8 +455,8 @@
     "m_ShaderOutputName": "Tiling",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 10.0,
-        "y": 10.0
+        "x": 20.0,
+        "y": 20.0
     },
     "m_DefaultValue": {
         "x": 0.0,
