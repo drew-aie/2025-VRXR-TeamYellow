@@ -19,6 +19,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: lambert3
     second: {fileID: 2100000, guid: 95c458b57940a924685d3f4d656837c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert4
+    second: {fileID: 2100000, guid: 95c458b57940a924685d3f4d656837c5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -105,7 +110,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.02
+    globalScale: 2
     rootMotionBoneName: World_jnt
     hasTranslationDoF: 0
     hasExtraRoot: 0
