@@ -146,13 +146,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4393185915574771608}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.511, y: 1.18, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -2.07, y: 4.94, z: 0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8353523521467647891}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &2246523048524260653
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   MaxDistanceBehaviour: 0
   OneHandJointSettings: {fileID: 0}
   TwoHandJointSettings: {fileID: 0}
-  StartingSocket: {fileID: 0}
+  StartingSocket: {fileID: 2826387269947114123}
   LinkStartingSocket: 0
   ShowBoundingBox: 0
   DrawCenterOfMass: 0
@@ -555,8 +555,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grenade: {fileID: 739810659719923644}
   _explosionCollider: {fileID: 8442996565440435690}
-  _grenadeCount: 1
-  _maxGrenadeCount: 3
   _grenadeTimer: 5
   _grenadeIsPrimed: 0
 --- !u!1 &8442996565440435690
