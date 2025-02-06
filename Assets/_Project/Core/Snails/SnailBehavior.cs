@@ -25,6 +25,8 @@ public class SnailBehavior : MonoBehaviour
 
     private NavMeshAgent _snail;
 
+    private Coroutine _coroutine;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,6 +34,8 @@ public class SnailBehavior : MonoBehaviour
         _snail.speed = _snailSpeed;
         _healthReset = _snailHealth;
         _maxDamage = _snailHealth * 2;
+
+        _coroutine = StartCoroutine(Delay(() => { GameplayManager.EndInvincibility(); }, 3f));
     }
 
     // Update is called once per frame
@@ -116,8 +120,17 @@ public class SnailBehavior : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Damage Trigger")
-            StartCoroutine(Delay(() => { GameplayManager.DamagePlayer(); }, 3f));
+        //If enemies are still colliding with player and the player isn't invincible
+        if (other.gameObject.tag == "Damage Trigger" && !GameplayManager.Invincible)
+        {
+            GameplayManager.DamagePlayer();
+            //Stopping the coroutine to prevent multiple calls
+            StopCoroutine(_coroutine);
+        }
+        if (GameplayManager.Invincible)
+        {
+            StartCoroutine(Delay(() => { GameplayManager.EndInvincibility(); }, 3f));
+        }
     }
 
     private IEnumerator Delay(Action callback, float delay)
