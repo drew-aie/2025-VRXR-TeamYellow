@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,18 +16,38 @@ public class Spawner : MonoBehaviour
     [SerializeField, Tooltip("Sets whether to spawn one game object upon starting.")]
     private bool _initialSpawn = true;
 
+    private bool _bSpawnTriggered;
+
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (_initialSpawn)
-            Spawn();
+        //if (!GameplayManager._bGameStarted)
+        //    return;
+
+        Spawn();
     }
 
     private void Spawn()
     {
         if (_initialSpawn)
+        {
             _initialSpawn = false;
+            ObjectPoolManager.SpawnObject(_spawnee, transform.position, transform.rotation);
+            return;
+        }
 
-        ObjectPoolManager.SpawnObject(_spawnee, transform.position, transform.rotation);
+        if (_bSpawnTriggered)
+            return;
+
+        _bSpawnTriggered = true;
+
+        //Spawn object after spawn time elapses
+        StartCoroutine(Delay(() => { ObjectPoolManager.SpawnObject(_spawnee, transform.position, transform.rotation); _bSpawnTriggered = false; }, _timeToSpawn));
+    }
+
+    private IEnumerator Delay(Action callback, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        callback();
     }
 }

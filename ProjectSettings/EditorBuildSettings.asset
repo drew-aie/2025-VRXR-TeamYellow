@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/HurricaneVR/TechDemo/Scenes/scene_examples.unity
     guid: 6192b2aa20ec3814f889f74b6930bef8
+  - enabled: 1
+    path: Assets/_Project/Scenes/MainScene.unity
+    guid: 08add315fd89ee84d8780146dc7f5c9f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 24ff6a580dd3968458bacdd2c98f0ec7,
       type: 2}

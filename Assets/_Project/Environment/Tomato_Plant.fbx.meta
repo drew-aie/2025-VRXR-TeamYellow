@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f266274acfd5f644f8faba3fd4480e16
+guid: d9f15804881fba545b150eaa1b132564
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
+      name: garden1_palette1
     second: {fileID: 2100000, guid: 95c458b57940a924685d3f4d656837c5, type: 2}
   materials:
     materialImportMode: 2
