@@ -58,6 +58,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8553029568202679085, guid: 0f0867e0f06860b4e93cb06658d3b110,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85ac308a0af374443bfb6a047ed67944, type: 2}
+    - target: {fileID: -5582713014149654371, guid: 0f0867e0f06860b4e93cb06658d3b110,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85ac308a0af374443bfb6a047ed67944, type: 2}
     - target: {fileID: -4517230619607028546, guid: 0f0867e0f06860b4e93cb06658d3b110,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -68,17 +78,32 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 85ac308a0af374443bfb6a047ed67944, type: 2}
+    - target: {fileID: -274171336474694358, guid: 0f0867e0f06860b4e93cb06658d3b110,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85ac308a0af374443bfb6a047ed67944, type: 2}
     - target: {fileID: 919132149155446097, guid: 0f0867e0f06860b4e93cb06658d3b110,
         type: 3}
       propertyPath: m_Name
       value: SnailRed
       objectReference: {fileID: 0}
+    - target: {fileID: 4062535137530178991, guid: 0f0867e0f06860b4e93cb06658d3b110,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85ac308a0af374443bfb6a047ed67944, type: 2}
     - target: {fileID: 5899615169425964793, guid: 0f0867e0f06860b4e93cb06658d3b110,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 85ac308a0af374443bfb6a047ed67944, type: 2}
     - target: {fileID: 7454462978598820448, guid: 0f0867e0f06860b4e93cb06658d3b110,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85ac308a0af374443bfb6a047ed67944, type: 2}
+    - target: {fileID: 7649591348722629610, guid: 0f0867e0f06860b4e93cb06658d3b110,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
