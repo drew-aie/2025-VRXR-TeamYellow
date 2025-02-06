@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7176553581674376644}
   - component: {fileID: 2195791142985926030}
+  - component: {fileID: 4051084136669317251}
   m_Layer: 0
   m_Name: DamageTrigger
   m_TagString: Damage Trigger
@@ -53,3 +54,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4051084136669317251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613147627592175093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5466e678bb19dde43a79491b619d8458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverScreen: {fileID: 0}
+  Spawners: {fileID: 0}
+  InvincibilityFrames: 2.5
