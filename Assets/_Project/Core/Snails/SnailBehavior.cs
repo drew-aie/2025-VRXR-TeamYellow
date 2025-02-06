@@ -11,6 +11,9 @@ public class SnailBehavior : MonoBehaviour
     [SerializeField, Tooltip("What the snail will advance towards. (The Player)")]
     private GameObject _target;
 
+    [SerializeField, Tooltip("The particle system played when the agent is defeated.")]
+    private ParticleSystem _deathParticles;
+
     [SerializeField, Tooltip("How much health the snail has.")]
     private float _snailHealth = 5.0f;
 
@@ -85,7 +88,11 @@ public class SnailBehavior : MonoBehaviour
         if (!_bDefeated)
             return;
 
-        //Do death
+        if (_deathParticles != null)
+        {
+            _deathParticles.enableEmission = true;
+            _deathParticles.Play();
+        }
 
         //Despawn after 3 seconds and reset health
         StartCoroutine(Delay(() => { ObjectPoolManager.ReturnObjectToPool(_snail.gameObject); ResetAgent(); }, 3.0f));

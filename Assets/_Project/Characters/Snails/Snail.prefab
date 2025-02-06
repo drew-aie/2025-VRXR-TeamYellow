@@ -70,6 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 5613147627592175093, guid: 352c021e4c92ed344b861c495cd793e3, type: 3}
+  _deathParticles: {fileID: 4874389585440167985, guid: 8feffb8f79e41b9438b993343505c4eb,
+    type: 3}
   _snailHealth: 5
   _snailSpeed: 3.5
   _despawnTimer: 3

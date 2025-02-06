@@ -19,15 +19,13 @@ public class Spawner : MonoBehaviour
     [SerializeField, Tooltip("Sets whether to spawn one game object upon starting.")]
     private bool _initialSpawn = true;
 
-    private float _grenadeCount;
-
     private bool _bSpawnTriggered;
 
     // Update is called once per frame
     void Update()
     {
-        if (!GameplayManager._bGameStarted)
-            return;
+        //if (!GameplayManager._bGameStarted)
+        //    return;
 
         Spawn();
     }

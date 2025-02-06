@@ -11,6 +11,9 @@ public class GrenadeBehavior : MonoBehaviour
     [SerializeField, Tooltip("The collider for the grenades explosion")]
     private GameObject _explosionCollider;
 
+    [SerializeField, Tooltip("The particle system for the grenade explosion.")]
+    private ParticleSystem _explosionParticles;
+
     [SerializeField, Tooltip("How long until the grenade explodes in seconds.")]
     private float _grenadeTimer = 5;
 
@@ -40,6 +43,12 @@ public class GrenadeBehavior : MonoBehaviour
         //Activating explosion and deactiving grenade
         _explosionCollider.SetActive(true);
         _grenade.SetActive(false);
+
+       if (_explosionParticles != null)
+        {
+            _explosionParticles.enableEmission = true;
+            _explosionParticles.Play();
+        }
 
         //Making rigid body kinematic to prevent the explosion from rolling
         _rigidbody.isKinematic = true;
