@@ -60,7 +60,7 @@ public class GrenadeBehavior : MonoBehaviour
             Invoke("Detonation", _grenadeTimer);
         else
         {
-            //ObjectPoolManager.ReturnObjectToPool(_grenade); 
+            ObjectPoolManager.ReturnObjectToPool(_grenade); 
         }
     }
 
