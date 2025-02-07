@@ -8,8 +8,9 @@ public class GameplayManager : MonoBehaviour
 
     public static GameplayManager Instance => _instance;
 
-    private float _healthReset;
+    private static float _healthReset;
     private static float _playerHealth = 3f;
+    private static float _playerKillCount = 0f;
     private static float _enemyCount;
     private static float _enemyLimit;
     private static float _grenadeCount;
@@ -32,6 +33,8 @@ public class GameplayManager : MonoBehaviour
         get => _difficultyTimer;
         set => _difficultyTimer = value;
     }
+
+    public static float KillCount => _playerKillCount;
 
     public static float GrenadeLimit => _grenadeLimit;
 
@@ -58,7 +61,7 @@ public class GameplayManager : MonoBehaviour
         _healthReset = _playerHealth;
     }
 
-    private void ResetHealth() => _playerHealth = _healthReset;
+    private static void ResetHealth() => _playerHealth = _healthReset;
 
     //Static function to damage the player
     public static void DamagePlayer()
@@ -102,6 +105,8 @@ public class GameplayManager : MonoBehaviour
         return _bGrenadeCountMaxed;
     }
 
+    public static void IncreaseKillCount() => _playerKillCount += 1f;
+
     public static void IncreaseEnemyCount() => _enemyCount += 1f;
 
     public static void IncreaseGrenadeCount() => _grenadeCount += 1f;
@@ -120,6 +125,20 @@ public class GameplayManager : MonoBehaviour
     {
         Debug.Log("Dead");
         //Game over stuff
+    }
+
+    private static void OnReset()
+    {
+        ResetHealth();
+        ResetValues();
+        TransitionTo(EState.START);
+    }
+
+    private static void ResetValues()
+    {
+        _playerKillCount = 0f;
+        _enemyCount = 0f;
+        _grenadeCount = 0f;
     }
 
     private static void CheckGameDifficulty()

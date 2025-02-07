@@ -97,7 +97,9 @@ public class SnailBehavior : MonoBehaviour
         //Despawn after 3 seconds and reset health
         StartCoroutine(Delay(() => { ObjectPoolManager.ReturnObjectToPool(_snail.gameObject); ResetAgent(); }, 3.0f));
 
+        //Decrease static enemy count and increase static kill count
         GameplayManager.DecreaseEnemyCount();
+        GameplayManager.IncreaseKillCount();
     }
 
     private void OnTriggerEnter(Collider other)

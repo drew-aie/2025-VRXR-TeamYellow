@@ -69,6 +69,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9203516868881002305, guid: 41f6a817512962b41b4846edf5ad8a17,
         type: 3}
+    - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
+        type: 3}
+      propertyPath: _initialSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
+        type: 3}
+      propertyPath: _scoreRequirement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
+        type: 3}
+      propertyPath: _minimumScoreAmount
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

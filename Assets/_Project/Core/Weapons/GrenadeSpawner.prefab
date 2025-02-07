@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8421653634775596072
+--- !u!1001 &7072444269427457937
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -61,28 +61,33 @@ PrefabInstance:
     - target: {fileID: 3576986517216701096, guid: 8b64db23ce10de4468b877cbd3daf2b7,
         type: 3}
       propertyPath: m_Name
-      value: BulkySnailSpawner
+      value: GrenadeSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
         type: 3}
       propertyPath: _spawnee
       value: 
-      objectReference: {fileID: 154340352281432528, guid: f02502c8df9ba8642ac21c9b7786679b,
+      objectReference: {fileID: 7474399880900654850, guid: e217b197040d89a48953c604faef69eb,
         type: 3}
     - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
         type: 3}
-      propertyPath: _initialSpawn
+      propertyPath: _maxCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
+        type: 3}
+      propertyPath: _timeToSpawn
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
         type: 3}
-      propertyPath: _scoreRequirement
+      propertyPath: _killRequirement
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
         type: 3}
       propertyPath: _minimumScoreAmount
-      value: 5000
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

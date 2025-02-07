@@ -48,6 +48,7 @@ public class GrenadeBehavior : MonoBehaviour
         {
             _explosionParticles.enableEmission = true;
             _explosionParticles.Play();
+            Debug.Log("Boom");
         }
 
         //Making rigid body kinematic to prevent the explosion from rolling
