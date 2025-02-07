@@ -13,14 +13,19 @@ public class GunRespawnBehaviour : MonoBehaviour
     [SerializeField]
     Transform RespawnLocation;
 
+    [SerializeField]
+    float RespawnDelay;
+
     public void ResetGunLocation()
     {
         StartCoroutine(DelayedRespawn());
     }
     IEnumerator DelayedRespawn()
     {
+        Rigidbody GunRigidBody = this.GetComponent<Rigidbody>();
         yield return new WaitForSeconds(2);
-        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        this.GetComponent<Rigidbody>().position = RespawnLocation.position;
+        GunRigidBody.velocity = new Vector3(0, 0, 0);
+        GunRigidBody.angularVelocity = new Vector3(0, 0, 0);
+        GunRigidBody.position = RespawnLocation.position;
     }
 }

@@ -146,13 +146,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4393185915574771608}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.511, y: 1.18, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -2.07, y: 4.94, z: 0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8353523521467647891}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &2246523048524260653
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
       m_Calls: []
   _grabBag: {fileID: 0}
   GrabBags: []
-  GrabControl: 0
+  GrabControl: 1
   GrabDetectionType: 1
   CheckHandOverlap: 0
   ReleasesOnHover: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   MaxDistanceBehaviour: 0
   OneHandJointSettings: {fileID: 0}
   TwoHandJointSettings: {fileID: 0}
-  StartingSocket: {fileID: 0}
+  StartingSocket: {fileID: 2826387269947114123}
   LinkStartingSocket: 0
   ShowBoundingBox: 0
   DrawCenterOfMass: 0
@@ -555,8 +555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grenade: {fileID: 739810659719923644}
   _explosionCollider: {fileID: 8442996565440435690}
-  _grenadeCount: 1
-  _maxGrenadeCount: 3
+  _explosionParticles: {fileID: 8366365210831002184, guid: 4db0ccabe7e257f4f938d8bf9f4b7fbe,
+    type: 3}
   _grenadeTimer: 5
   _grenadeIsPrimed: 0
 --- !u!1 &8442996565440435690
@@ -608,7 +608,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8442996565440435690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -747,7 +747,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5919419520950183174, guid: 66139479b339fd5418cf10f02c931b42, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5242516198082397644, guid: 66139479b339fd5418cf10f02c931b42,
@@ -762,7 +763,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4148685002450902577, guid: 66139479b339fd5418cf10f02c931b42,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8740438333775483654}
+      addedObject: {fileID: 2140756217514143665}
   m_SourcePrefab: {fileID: 100100000, guid: 66139479b339fd5418cf10f02c931b42, type: 3}
 --- !u!1 &739810659719923644 stripped
 GameObject:
@@ -783,8 +784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentGrabbable: {fileID: 1630345649297113114}
---- !u!136 &8740438333775483654
-CapsuleCollider:
+--- !u!135 &2140756217514143665
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -801,11 +802,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Height: 0.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.049999997, z: 0}
+  serializedVersion: 3
+  m_Radius: 0.23818043
+  m_Center: {x: -0.04, y: 0.1755169, z: 0}
 --- !u!4 &8869393423658523713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5242516198082397644, guid: 66139479b339fd5418cf10f02c931b42,

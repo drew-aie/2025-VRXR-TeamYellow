@@ -82,7 +82,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5084791028621247987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -153,4 +153,9 @@ MonoBehaviour:
   _spawnee: {fileID: 1052175084753747266, guid: f2cf4ab21f9d734479652ba463b577a9,
     type: 3}
   _timeToSpawn: 10
+  _minimumScoreAmount: 0
+  _minimumKillAmount: 0
+  _maxCount: 0
   _initialSpawn: 1
+  _scoreRequirement: 0
+  _killRequirement: 0

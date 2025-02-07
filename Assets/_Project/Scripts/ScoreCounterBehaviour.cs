@@ -11,6 +11,8 @@ public class ScoreCounterBehaviour : MonoBehaviour
 
     private int _currentScore = 0;
 
+    public int Score => _currentScore;
+
     private void Awake()
     {
         if (_instance == null)
@@ -33,4 +35,8 @@ public class ScoreCounterBehaviour : MonoBehaviour
         _instance._currentScore += value;
     }
 
+    public void ResetScore()
+    {
+        _instance._currentScore = 0;
+    }
 }
