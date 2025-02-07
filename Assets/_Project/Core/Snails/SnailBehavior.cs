@@ -50,8 +50,6 @@ public class SnailBehavior : MonoBehaviour
         if (!_snail.enabled)
             return;
 
-        Debug.Log(_target.name);
-
         //Setting agent to seek the player
         _snail.destination = _target.transform.position;
         //Making agent face the direction it's travelling using it's position and velocity
