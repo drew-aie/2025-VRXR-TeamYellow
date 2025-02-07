@@ -17,15 +17,11 @@ public class GrenadeBehavior : MonoBehaviour
     [SerializeField, Tooltip("How long until the grenade explodes in seconds.")]
     private float _grenadeTimer = 5;
 
-    [SerializeField, Tooltip("If the grenade is armed or not.")]
-    private bool _grenadeIsPrimed;
-
     private Rigidbody _rigidbody;
 
     // Start is called before the first frame update
     void Awake()
     {
-        _grenadeIsPrimed = false;
         _explosionCollider.SetActive(false);
 
         _rigidbody = GetComponent<Rigidbody>();

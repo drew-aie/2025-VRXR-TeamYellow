@@ -50,8 +50,12 @@ public class SnailBehavior : MonoBehaviour
         if (!_snail.enabled)
             return;
 
+
         //Setting agent to seek the player
-        _snail.destination = _target.transform.position;
+        //_snail.destination = ;
+        _snail.SetDestination(new Vector3(-8f, 0f, 8.5f));
+        
+        Debug.Log(_snail.destination);
         //Making agent face the direction it's travelling using it's position and velocity
         _snail.transform.LookAt(_snail.transform.position + _snail.velocity);
 
@@ -150,7 +154,6 @@ public class SnailBehavior : MonoBehaviour
             StartCoroutine(Delay(() => { GameplayManager.EndInvincibility(); }, 3f));
         }
     }
-
     private IEnumerator Delay(Action callback, float delay)
     {
         yield return new WaitForSeconds(delay);

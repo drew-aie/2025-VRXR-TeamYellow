@@ -47,8 +47,8 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         //Don't spawn anything if the game hasn't started
-        if (!GameplayManager._bGameStarted)
-            return;
+        //if (!GameplayManager._bGameStarted)
+        //    return;
 
         _spawnTimer += Time.deltaTime;
 

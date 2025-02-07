@@ -1249,6 +1249,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrenadePin
       objectReference: {fileID: 0}
+    - target: {fileID: 1663808638643390048, guid: 6983474e1b6918a40a9e25916cb1830f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4150806358042381454, guid: 6983474e1b6918a40a9e25916cb1830f,
         type: 3}
       propertyPath: StartingSocket
@@ -1381,7 +1386,7 @@ PrefabInstance:
     - target: {fileID: 7474399880900654850, guid: e217b197040d89a48953c604faef69eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8353523521467647891, guid: e217b197040d89a48953c604faef69eb,
         type: 3}
