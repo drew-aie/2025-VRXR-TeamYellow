@@ -44,6 +44,7 @@ public class GrenadeBehavior : MonoBehaviour
         _explosionCollider.SetActive(true);
         _grenade.SetActive(false);
 
+        //Checking if we have a particle system
        if (_explosionParticles != null)
         {
             _explosionParticles.enableEmission = true;

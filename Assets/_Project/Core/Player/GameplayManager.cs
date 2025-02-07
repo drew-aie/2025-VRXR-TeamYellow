@@ -61,8 +61,6 @@ public class GameplayManager : MonoBehaviour
         _healthReset = _playerHealth;
     }
 
-    private static void ResetHealth() => _playerHealth = _healthReset;
-
     //Static function to damage the player
     public static void DamagePlayer()
     {
@@ -78,6 +76,8 @@ public class GameplayManager : MonoBehaviour
             TriggerEndState();
         }
     }
+
+    public static void bGameStarted() => _bGameStarted = true;
 
     /// <summary>
     /// Checks if the number of enemies in the scene has reached its limit.
@@ -105,6 +105,8 @@ public class GameplayManager : MonoBehaviour
         return _bGrenadeCountMaxed;
     }
 
+    private static void ResetHealth() => _playerHealth = _healthReset;
+
     public static void IncreaseKillCount() => _playerKillCount += 1f;
 
     public static void IncreaseEnemyCount() => _enemyCount += 1f;
@@ -127,8 +129,9 @@ public class GameplayManager : MonoBehaviour
         //Game over stuff
     }
 
-    private static void OnReset()
+    public static void OnReset()
     {
+        _bGameStarted = false;
         ResetHealth();
         ResetValues();
         TransitionTo(EState.START);

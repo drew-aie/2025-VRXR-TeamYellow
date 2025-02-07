@@ -45,8 +45,9 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!GameplayManager._bGameStarted)
-        //    return;
+        //Don't spawn anything if the game hasn't started
+        if (!GameplayManager._bGameStarted)
+            return;
 
         //Before spawning check if the object has a requirement before it can spawn
         if (SpawnCriteriaMet())
