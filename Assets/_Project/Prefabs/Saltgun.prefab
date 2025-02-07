@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnLocation: {fileID: 0}
+  RespawnDelay: 2
 --- !u!1 &2792863605249768672
 GameObject:
   m_ObjectHideFlags: 0

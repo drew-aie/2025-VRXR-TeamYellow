@@ -33,4 +33,8 @@ public class ScoreCounterBehaviour : MonoBehaviour
         _instance._currentScore += value;
     }
 
+    public void ResetScore()
+    {
+        _instance._currentScore = 0;
+    }
 }
