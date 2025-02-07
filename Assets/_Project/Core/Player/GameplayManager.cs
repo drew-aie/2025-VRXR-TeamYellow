@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameplayManager : MonoBehaviour
 {
+    [SerializeField]
+    private static GameObject _gameOver;
+
     private static GameplayManager _instance;
 
     public static GameplayManager Instance => _instance;
@@ -125,13 +128,14 @@ public class GameplayManager : MonoBehaviour
 
     public static void TriggerEndState()
     {
-        Debug.Log("Dead");
-        //Game over stuff
+        _gameOver.SetActive(true);
+        _bGameStarted = false;
     }
 
     public static void OnReset()
     {
         _bGameStarted = false;
+        _gameOver.SetActive(false);
         ResetHealth();
         ResetValues();
         TransitionTo(EState.START);
@@ -175,14 +179,7 @@ public class GameplayManager : MonoBehaviour
         {
             _enemyLimit = 10f;
 
-            if (DifficultyTimer >= 120f)
-                TransitionTo(EState.END);
-
             return;
-        }
-        else if (_currentState == EState.END)
-        {
-            //Player wins
         }
         else
             return;

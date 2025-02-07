@@ -59,23 +59,10 @@ public class GrenadeBehavior : MonoBehaviour
         GameplayManager.DecreaseGrenadeCount();
 
         //Using a coroutine to deactive the explosion after 3 seconds
-        StartCoroutine(Delay(() => { _explosionCollider.SetActive(false); }, 3.0f));
+        StartCoroutine(Delay(() => { _explosionCollider.SetActive(false); ObjectPoolManager.ReturnObjectToPool(_grenade); }, 3.0f));
     }
 
-    public void OnThrow()
-    {
-        if (_grenadeIsPrimed)
-            Invoke("Detonation", _grenadeTimer);
-        else
-        {
-            ObjectPoolManager.ReturnObjectToPool(_grenade); 
-        }
-    }
-
-    public void PrimeGrenade()
-    {
-        _grenadeIsPrimed = true;
-    }
+    public void OnThrow() => Invoke("Detonation", _grenadeTimer);
 
     private void OnCollisionEnter(Collision collision)
     {

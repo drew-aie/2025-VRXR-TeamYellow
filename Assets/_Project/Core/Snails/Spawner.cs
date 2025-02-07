@@ -33,6 +33,7 @@ public class Spawner : MonoBehaviour
     [SerializeField, Tooltip("Set whether this gameobject will require a minimum defeat count before it will spawn")]
     private bool _killRequirement = false;
 
+    private float _spawnTimer = 0f;
     private float _scoreCheck = 0f;
     private float _killCheck = 0f;
 
@@ -46,23 +47,24 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         //Don't spawn anything if the game hasn't started
-        if (!GameplayManager._bGameStarted)
-            return;
+        //if (!GameplayManager._bGameStarted)
+        //    return;
+
+        _spawnTimer += Time.deltaTime;
 
         //Before spawning check if the object has a requirement before it can spawn
-        if (SpawnCriteriaMet())
+        if (SpawnCriteriaMet() && !_initialSpawn)
             Spawn();
-    }
 
-    private void Spawn()
-    {
         if (_initialSpawn)
         {
             _initialSpawn = false;
             ObjectPoolManager.SpawnObject(_spawnee, transform.position, transform.rotation);
-            return;
         }
+    }
 
+    private void Spawn()
+    {
         //Check if already spawning an object and if snail or grenade count has reached it's limit
         if (_bSpawnTriggered || 
             GameplayManager.bCheckEnemyCount() && _spawnee.tag == "Snail" ||
@@ -71,8 +73,12 @@ public class Spawner : MonoBehaviour
 
         _bSpawnTriggered = true;
 
-        //Spawn object after spawn time elapses
-        StartCoroutine(Delay(() => { ObjectPoolManager.SpawnObject(_spawnee, transform.position, transform.rotation); _bSpawnTriggered = false; }, _timeToSpawn));
+        if (_spawnTimer >= _timeToSpawn)
+        {
+            ObjectPoolManager.SpawnObject(_spawnee, transform.position, transform.rotation);
+            _bSpawnTriggered = true;
+            _spawnTimer = 0f;
+        }
 
         //If the gameobject is a snail increase the snail count, otherwise increase greanade count
         if (_spawnee.tag == ("Snail"))
@@ -123,11 +129,5 @@ public class Spawner : MonoBehaviour
 
         else
             return true;
-    }
-
-    private IEnumerator Delay(Action callback, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        callback();
     }
 }
