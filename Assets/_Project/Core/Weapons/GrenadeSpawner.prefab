@@ -58,6 +58,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2386056472750107502, guid: 8b64db23ce10de4468b877cbd3daf2b7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3576986517216701096, guid: 8b64db23ce10de4468b877cbd3daf2b7,
         type: 3}
       propertyPath: m_Name
@@ -67,7 +72,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _spawnee
       value: 
-      objectReference: {fileID: 7474399880900654850, guid: e217b197040d89a48953c604faef69eb,
+      objectReference: {fileID: 4928615989987764464, guid: 32ddff9abda4f7c4ab7eb22ba79242c5,
         type: 3}
     - target: {fileID: 4664455600258810340, guid: 8b64db23ce10de4468b877cbd3daf2b7,
         type: 3}
