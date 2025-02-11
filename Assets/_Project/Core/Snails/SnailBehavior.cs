@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,9 +9,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent), typeof(Rigidbody))]
 public class SnailBehavior : MonoBehaviour
 {
-    [SerializeField, Tooltip("What the snail will advance towards. (The Player)")]
-    private GameObject _target;
-
     [SerializeField, Tooltip("The particle system played when the agent is defeated.")]
     private ParticleSystem _deathParticles;
 
@@ -29,6 +27,8 @@ public class SnailBehavior : MonoBehaviour
 
     private bool _bDefeated;
 
+    private GameObject _target;
+
     private NavMeshAgent _snail;
 
     private Coroutine _coroutine;
@@ -44,17 +44,18 @@ public class SnailBehavior : MonoBehaviour
         _coroutine = StartCoroutine(Delay(() => { GameplayManager.EndInvincibility(); }, 3f));
     }
 
+    private void Start() => _target = GameObject.FindWithTag("Damage Trigger");
+
     // Update is called once per frame
     void Update()
     {
         if (!_snail.enabled)
             return;
 
-
         //Setting agent to seek the player
-        //_snail.destination = ;
-        _snail.SetDestination(new Vector3(-8f, 0f, 8.5f));
-        
+        _snail.destination = _target.transform.position;
+        //_snail.SetDestination(new Vector3(-8f, 0f, 8.5f));
+
         Debug.Log(_snail.destination);
         //Making agent face the direction it's travelling using it's position and velocity
         _snail.transform.LookAt(_snail.transform.position + _snail.velocity);
