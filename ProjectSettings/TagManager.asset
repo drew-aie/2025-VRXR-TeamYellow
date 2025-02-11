@@ -8,6 +8,7 @@ TagManager:
   - Snail
   - Explosion
   - Damage Trigger
+  - Despawn Trigger
   layers:
   - Default
   - TransparentFX

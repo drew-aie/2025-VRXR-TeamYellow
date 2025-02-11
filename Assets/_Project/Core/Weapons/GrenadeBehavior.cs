@@ -11,24 +11,17 @@ public class GrenadeBehavior : MonoBehaviour
     [SerializeField, Tooltip("The collider for the grenades explosion")]
     private GameObject _explosionCollider;
 
-    [SerializeField, Tooltip("How many grenades the player currently has available.")]
-    private float _grenadeCount = 1;
-
-    [SerializeField, Tooltip("The maximum amount of grenades the player can have.")]
-    private float _maxGrenadeCount = 3;
+    [SerializeField, Tooltip("The particle system for the grenade explosion.")]
+    private ParticleSystem _explosionParticles;
 
     [SerializeField, Tooltip("How long until the grenade explodes in seconds.")]
     private float _grenadeTimer = 5;
-
-    [SerializeField, Tooltip("If the grenade is armed or not.")]
-    private bool _grenadeIsPrimed;
 
     private Rigidbody _rigidbody;
 
     // Start is called before the first frame update
     void Awake()
     {
-        _grenadeIsPrimed = false;
         _explosionCollider.SetActive(false);
 
         _rigidbody = GetComponent<Rigidbody>();
@@ -39,7 +32,7 @@ public class GrenadeBehavior : MonoBehaviour
     {
         if (_explosionCollider == null)
         {
-            Debug.Log("Explosion isn't set.");
+            Debug.LogWarning("Explosion isn't set.");
             return;
         }
 
@@ -47,27 +40,25 @@ public class GrenadeBehavior : MonoBehaviour
         _explosionCollider.SetActive(true);
         _grenade.SetActive(false);
 
+        //Checking if we have a particle system
+       if (_explosionParticles != null)
+        {
+            _explosionParticles.enableEmission = true;
+            _explosionParticles.Play();
+            Debug.Log("Boom");
+        }
+
         //Making rigid body kinematic to prevent the explosion from rolling
         _rigidbody.isKinematic = true;
 
+        //Reducing grenade count
+        GameplayManager.DecreaseGrenadeCount();
+
         //Using a coroutine to deactive the explosion after 3 seconds
-        StartCoroutine(Delay(() => { _explosionCollider.SetActive(false); }, 3.0f));
+        StartCoroutine(Delay(() => { _explosionCollider.SetActive(false); ObjectPoolManager.ReturnObjectToPool(_grenade); }, 3.0f));
     }
 
-    public void OnThrow()
-    {
-        if (_grenadeIsPrimed)
-            Invoke("Detonation", _grenadeTimer);
-        else
-        {
-            ObjectPoolManager.ReturnObjectToPool(_grenade); 
-        }
-    }
-
-    public void PrimeGrenade()
-    {
-        _grenadeIsPrimed = true;
-    }
+    public void OnThrow() => Invoke("Detonation", _grenadeTimer);
 
     private void OnCollisionEnter(Collision collision)
     {

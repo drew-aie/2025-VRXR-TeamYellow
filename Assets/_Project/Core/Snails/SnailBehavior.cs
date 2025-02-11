@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,8 +9,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent), typeof(Rigidbody))]
 public class SnailBehavior : MonoBehaviour
 {
-    [SerializeField, Tooltip("What the snail will advance towards. (The Player)")]
-    private GameObject _target;
+    [SerializeField, Tooltip("The particle system played when the agent is defeated.")]
+    private ParticleSystem _deathParticles;
 
     [SerializeField, Tooltip("How much health the snail has.")]
     private float _snailHealth = 5.0f;
@@ -17,11 +18,16 @@ public class SnailBehavior : MonoBehaviour
     [SerializeField, Tooltip("How fast the snail moves towards the target.")]
     private float _snailSpeed = 3.5f;
 
+    [SerializeField, Tooltip("The amount of time it takes for the agent to despawn after reaching the player.")]
+    private float _despawnTimer = 3f;
+
     private float _healthReset;
     private float _maxDamage;
     private float _bulletDamage = 2.5f;
 
     private bool _bDefeated;
+
+    private GameObject _target;
 
     private NavMeshAgent _snail;
 
@@ -38,6 +44,8 @@ public class SnailBehavior : MonoBehaviour
         _coroutine = StartCoroutine(Delay(() => { GameplayManager.EndInvincibility(); }, 3f));
     }
 
+    private void Start() => _target = GameObject.FindWithTag("Damage Trigger");
+
     // Update is called once per frame
     void Update()
     {
@@ -46,8 +54,15 @@ public class SnailBehavior : MonoBehaviour
 
         //Setting agent to seek the player
         _snail.destination = _target.transform.position;
+        //_snail.SetDestination(new Vector3(-8f, 0f, 8.5f));
+
+        Debug.Log(_snail.destination);
         //Making agent face the direction it's travelling using it's position and velocity
         _snail.transform.LookAt(_snail.transform.position + _snail.velocity);
+
+        //Making a timer for the game's difficulty
+        GameplayManager.DifficultyTimer += Time.deltaTime;
+
     }
 
     //Set the health of the snail back to default value, called when returned to pool
@@ -78,27 +93,31 @@ public class SnailBehavior : MonoBehaviour
         if (!_bDefeated)
             return;
 
-        //Do death
+        if (_deathParticles != null)
+        {
+            _deathParticles.enableEmission = true;
+            _deathParticles.Play();
+        }
 
         //Despawn after 3 seconds and reset health
         StartCoroutine(Delay(() => { ObjectPoolManager.ReturnObjectToPool(_snail.gameObject); ResetAgent(); }, 3.0f));
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("projectile"))
-            return;
-
-        TakeDamage(_bulletDamage);
-
-        Vector3 bulletForce = new Vector3(1.5f, 1.5f, 1.5f);
-        _snail.GetComponent<Rigidbody>().AddForce(bulletForce, ForceMode.Impulse);
-
+        //Decrease static enemy count and increase static kill count
+        GameplayManager.DecreaseEnemyCount();
+        GameplayManager.IncreaseKillCount();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Explosion")
+        //Triggers for damaging agents
+        if (other.gameObject.tag == "projectile")
+        {
+            TakeDamage(_bulletDamage);
+
+            Vector3 bulletForce = new Vector3(1.5f, 1.5f, 1.5f);
+            _snail.GetComponent<Rigidbody>().AddForce(bulletForce, ForceMode.Impulse);
+        }
+        else if (other.gameObject.tag == "Explosion")
         {
             TakeDamage(_maxDamage);
 
@@ -112,10 +131,14 @@ public class SnailBehavior : MonoBehaviour
             //Apply explosion force
             _snail.GetComponent<Rigidbody>().AddExplosionForce(100.0f, explosionPosition, explosionRadius);
         }
+
+        //Triggers for damaging player and despawning agents
         if (other.gameObject.tag == "Damage Trigger")
         {
             GameplayManager.DamagePlayer();
         }
+        if (other.gameObject.tag == "Despawn Trigger")
+            StartCoroutine(Delay(() => { _bDefeated = true; PlayDeath(); }, _despawnTimer));
     }
 
     private void OnTriggerStay(Collider other)
@@ -127,12 +150,11 @@ public class SnailBehavior : MonoBehaviour
             //Stopping the coroutine to prevent multiple calls
             StopCoroutine(_coroutine);
         }
-        if (GameplayManager.Invincible)
+        else if (GameplayManager.Invincible)
         {
             StartCoroutine(Delay(() => { GameplayManager.EndInvincibility(); }, 3f));
         }
     }
-
     private IEnumerator Delay(Action callback, float delay)
     {
         yield return new WaitForSeconds(delay);
