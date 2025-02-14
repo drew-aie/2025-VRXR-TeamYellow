@@ -728,6 +728,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 746643426}
     m_Modifications:
+    - target: {fileID: 2494192858982678133, guid: 1be235e1c51eec4428fd89a8fd130653,
+        type: 3}
+      propertyPath: _spawnee
+      value: 
+      objectReference: {fileID: 4928615989987764464, guid: 32ddff9abda4f7c4ab7eb22ba79242c5,
+        type: 3}
     - target: {fileID: 6017474162047079737, guid: 1be235e1c51eec4428fd89a8fd130653,
         type: 3}
       propertyPath: m_Name
@@ -1030,6 +1036,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: FastSnailSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _timeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _killRequirement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _scoreRequirement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _minimumKillAmount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1103,6 +1129,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FastSnailSpawner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _timeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _killRequirement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _scoreRequirement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _minimumKillAmount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1957,6 +2003,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 746643426}
     m_Modifications:
+    - target: {fileID: 3775354575640280524, guid: 5d3afa05c5cdba2448c2d0efd57528e9,
+        type: 3}
+      propertyPath: _timeToSpawn
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775354575640280524, guid: 5d3afa05c5cdba2448c2d0efd57528e9,
+        type: 3}
+      propertyPath: _scoreRequirement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5006801110950549120, guid: 5d3afa05c5cdba2448c2d0efd57528e9,
         type: 3}
       propertyPath: m_Name
@@ -3666,6 +3722,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: FastSnailSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _timeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _killRequirement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _scoreRequirement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731303223704110572, guid: 26eb5c327810f884f8c13b67c5679071,
+        type: 3}
+      propertyPath: _minimumKillAmount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4040,6 +4116,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 746643426}
     m_Modifications:
+    - target: {fileID: 3775354575640280524, guid: 5d3afa05c5cdba2448c2d0efd57528e9,
+        type: 3}
+      propertyPath: _timeToSpawn
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775354575640280524, guid: 5d3afa05c5cdba2448c2d0efd57528e9,
+        type: 3}
+      propertyPath: _scoreRequirement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5006801110950549120, guid: 5d3afa05c5cdba2448c2d0efd57528e9,
         type: 3}
       propertyPath: m_Name
